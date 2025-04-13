@@ -10,6 +10,7 @@ import InputBase from '@mui/material/InputBase';
 import { Button } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import SearchIcon from '@mui/icons-material/Search';
+import ImageUploadModal from '../modules/ImageUploadModal';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -23,10 +24,9 @@ const Search = styled('div')(({ theme }) => ({
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     width: 'auto',
-    minWidth: '150px',
   },
   [theme.breakpoints.up('md')]: {
-    minWidth: '250px',
+    width: '500px',
   },
 }));
 
@@ -52,6 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar() {
   const [searchTerm, setSearchTerm] = React.useState('');
+  const [open, setOpen] = React.useState(false);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -59,7 +60,7 @@ export default function Navbar() {
   };
 
   const handleUploadClick = () => {
-    console.log("Upload Button Clicked");
+    setOpen(true)
   };
 
   return (
@@ -68,7 +69,7 @@ export default function Navbar() {
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           {/* Logo */}
           <Typography variant="h6" noWrap component="div">
-            MUI
+         IMG
           </Typography>
 
           {/* Search */}
@@ -109,6 +110,8 @@ export default function Navbar() {
           </Button>
         </Toolbar>
       </AppBar>
+      <ImageUploadModal open={open} setOpen={setOpen} />
+
     </Box>
   );
 }

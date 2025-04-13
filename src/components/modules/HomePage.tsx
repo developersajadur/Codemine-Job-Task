@@ -3,7 +3,7 @@ import ImageGrid from './ImagesGrid';
 
 const HomePage = () => {
     return (
-        <div>
+        <div className='mt-2'>
          <ImageGrid/>
         </div>
     );

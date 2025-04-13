@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function ImageGrid() {
   return (
-    <Box sx={{  overflowY: 'scroll' }}>
+    <Box sx={{}}>
       <ImageList variant="masonry" cols={4} gap={8}>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
