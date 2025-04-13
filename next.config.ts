@@ -2,7 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['images.unsplash.com', 'res.cloudinary.com', 'https://images.unsplash.com'], // Add other trusted domains here
+    domains: ['https://images.unsplash.com', 'https://i.ibb.co', 'i.ibb.co'], 
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '10mb',
+    },
   },
 };
 

@@ -1,11 +1,14 @@
-'use client'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 
 import * as React from 'react';
+import { toast } from 'sonner';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { uploadImages } from '@/services/ImagesServices'; 
 
 interface ImagePreviewerProps {
   onUploadSuccess?: () => void;
@@ -17,38 +20,34 @@ export default function ImagePreviewer({ onUploadSuccess }: ImagePreviewerProps)
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
-    if (files) {
+    if (files && files.length > 0) {
       setImages(prev => [...prev, ...Array.from(files)]);
+      toast.success(`${files.length} image(s) selected.`);
     }
   };
 
   const handleRemoveImage = (index: number) => {
     setImages(prev => prev.filter((_, i) => i !== index));
+    toast.info('Image removed.');
   };
 
   const handleUpload = async () => {
     if (images.length === 0) return;
     setLoading(true);
+
     try {
-      const formData = new FormData();
-      images.forEach(file => formData.append('images', file));
-
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        alert('Images uploaded successfully!');
-        setImages([]);
-        onUploadSuccess?.();
-      } else {
-        alert(`Upload failed: ${result.message}`);
-      }
-    } catch (error) {
-      console.error(error);
-      alert('An error occurred while uploading.');
+      const result = await uploadImages(images);
+      console.log(result);
+     if(result.success){
+      toast.success('Images uploaded successfully!');
+      setImages([]);
+      onUploadSuccess?.();
+     }else{
+      return toast.error('Images uploaded failed!');
+     }
+    } catch (error: any) {
+      toast.error(`Upload failed: ${error.message}`);
+      console.error('Upload error:', error);
     } finally {
       setLoading(false);
     }
@@ -78,7 +77,6 @@ export default function ImagePreviewer({ onUploadSuccess }: ImagePreviewerProps)
               gap: 2,
               mt: 2,
               pr: 1,
-              
               '&::-webkit-scrollbar': {
                 width: '6px',
               },
@@ -110,7 +108,7 @@ export default function ImagePreviewer({ onUploadSuccess }: ImagePreviewerProps)
                   component="img"
                   src={URL.createObjectURL(file)}
                   alt={`preview-${index}`}
-                  loading='lazy'
+                  loading="lazy"
                   sx={{
                     position: 'absolute',
                     top: 0,
