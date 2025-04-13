@@ -1,14 +1,21 @@
-import { Button } from '@mui/material';
+import HomePage from '@/components/modules/HomePage';
+import Navbar from '@/components/shared/Navbar';
 import React from 'react';
 
-const HomePage = () => {
+const page = () => {
   return (
-    <div>
-     <Button variant="text">Text</Button>
-<Button variant="contained">Contained</Button>
-<Button variant="outlined">Outlined</Button>
+    <div className="">
+      <header>
+        <Navbar/>
+      </header>
+    <main className="container mx-auto h-screen px-4 md:px-8 lg:px-10">
+    <HomePage/>
+    </main>
+    <footer>
+      
+    </footer>
     </div>
   );
 };
 
-export default HomePage;
+export default page;
