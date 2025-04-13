@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use server"
 
 
 import { MongoClient, ServerApiVersion } from "mongodb";

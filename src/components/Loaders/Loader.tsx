@@ -1,18 +1,25 @@
 'use client';
 
-import { Player } from '@lottiefiles/react-lottie-player';
-import animationData from '@/assets/Jsons/loader.json';
+import { CircularProgress, Box, Typography } from '@mui/material';
 
 const Loader = () => {
     return (
-        <div className="h-screen w-full flex items-center justify-center bg-transparent">
-            <Player
-                autoplay
-                loop
-                src={animationData}
-                style={{ height: '400px', width: '400px' }}
-            />
-        </div>
+        <Box
+            sx={{
+                height: '100vh',
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                backgroundColor: 'transparent',
+            }}
+        >
+            <CircularProgress size={80} thickness={4} />
+            <Typography variant="h6" mt={2} color="text.secondary">
+                Loading, please wait...
+            </Typography>
+        </Box>
     );
 };
 
