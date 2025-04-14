@@ -19,6 +19,13 @@
   }
 }
 
+.custom-swal-zindex {
+  z-index: 2000 !important;
+}
+
+.swal2-container {
+  z-index: 2000 !important;
+}
 /* body {
   background: var(--background);
   color: var(--foreground);

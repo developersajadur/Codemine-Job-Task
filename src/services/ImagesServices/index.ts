@@ -5,39 +5,56 @@
 
 import { revalidateTag } from "next/cache";
 
+const Base_Api = "http://localhost:3000/api/";
+
 export const uploadImages = async (images: File[]) => {
   try {
     const formData = new FormData();
-    images.forEach(file => formData.append('images', file));
+    images.forEach((file) => formData.append("images", file));
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/upload/upload-images`, {
-      method: 'POST',
-      body: formData,
-    });
+    const res = await fetch(
+      `${Base_Api}/upload/upload-images`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
-    const result = await response.json();
-    if (response.ok) {
-        revalidateTag('IMAGES')
-      return { success: true, result };
-    } else {
-      return { success: false, message: result.message };
-    }
+    revalidateTag("IMAGES");
+
+    // console.log(response);
+    return await res.json();
   } catch (error: any) {
+    console.log(error);
     return { success: false, error: error.message };
   }
 };
 
-
-
 export const getAllImages = async () => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/images/get-all`, {
+    const res = await fetch(`${Base_Api}/images/get-all`, {
       cache: "no-store",
       next: { tags: ["IMAGES"] },
     });
 
-    return await response.json();
+    return await res.json();
   } catch (error: any) {
+    console.log(error);
     return { error: error.message };
   }
 };
+
+
+export const deleteImage = async(id: string) => {
+  try {
+    const res = await fetch(`${Base_Api}/images/delete/${id}`, {
+      method: "DELETE",
+    })
+    // console.log(res.status);
+    revalidateTag("IMAGES");
+    return await res.json();
+  }catch (error: any) {
+    console.log(error);
+    return { error: error.message };
+  }
+}

@@ -4,17 +4,19 @@
     "": {
       "name": "codemine-app",
       "dependencies": {
+        "codemine-app": ".",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.0",
+        "@lottiefiles/react-lottie-player": "^3.6.0",
         "@mui/icons-material": "^7.0.2",
         "@mui/material": "^7.0.2",
         "@mui/styled-engine-sc": "^7.0.2",
         "express": "^5.1.0",
         "file-upload-with-preview": "^6.1.2",
         "mongodb": "^6.15.0",
-        "next": "15.3.0",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
+        "next": "^15.3.0",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
         "react-lottie": "^1.2.10",
         "sonner": "^2.0.3",
         "styled-components": "^6.1.17",
@@ -22,8 +24,8 @@
       "devDependencies": {
         "@eslint/eslintrc": "^3",
         "@tailwindcss/postcss": "^4",
-        "@types/node": "^20",
-        "@types/react": "^19",
+        "@types/node": "^20.17.30",
+        "@types/react": "^19.1.1",
         "@types/react-dom": "^19",
         "@types/react-lottie": "^1.2.10",
         "eslint": "^9",
@@ -163,6 +165,8 @@
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.0", "", {}, "sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ=="],
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.25", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ=="],
+
+    "@lottiefiles/react-lottie-player": ["@lottiefiles/react-lottie-player@3.6.0", "", { "dependencies": { "lottie-web": "^5.12.2" }, "peerDependencies": { "react": "16 - 19" } }, "sha512-WK5TriLJT93VF3w4IjSVyveiedraZCnDhKzCPhpbeLgQeMi6zufxa3dXNc4HmAFRXq+LULPAy+Idv1rAfkReMA=="],
 
     "@mongodb-js/saslprep": ["@mongodb-js/saslprep@1.2.2", "", { "dependencies": { "sparse-bitfield": "^3.0.3" } }, "sha512-EB0O3SCSNRUFk66iRCpI+cXzIjdswfCs7F6nOC3RAGJ7xr5YhaicvsRwJ9eyzYvYRlCSDUO/c7g4yNulxKC1WA=="],
 
@@ -405,6 +409,8 @@
     "client-only": ["client-only@0.0.1", "", {}, "sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA=="],
 
     "clsx": ["clsx@2.1.1", "", {}, "sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA=="],
+
+    "codemine-app": ["codemine-app@file:", { "dependencies": { "@emotion/react": "^11.14.0", "@emotion/styled": "^11.14.0", "@lottiefiles/react-lottie-player": "^3.6.0", "@mui/icons-material": "^7.0.2", "@mui/material": "^7.0.2", "@mui/styled-engine-sc": "^7.0.2", "express": "^5.1.0", "file-upload-with-preview": "^6.1.2", "mongodb": "^6.15.0", "next": "^15.3.0", "react": "^19.1.0", "react-dom": "^19.1.0", "react-lottie": "^1.2.10", "sonner": "^2.0.3", "styled-components": "^6.1.17" }, "devDependencies": { "@eslint/eslintrc": "^3", "@tailwindcss/postcss": "^4", "@types/node": "^20.17.30", "@types/react": "^19.1.1", "@types/react-dom": "^19", "@types/react-lottie": "^1.2.10", "eslint": "^9", "eslint-config-next": "15.3.0", "tailwindcss": "^4", "typescript": "^5" } }],
 
     "color": ["color@4.2.3", "", { "dependencies": { "color-convert": "^2.0.1", "color-string": "^1.9.0" } }, "sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A=="],
 

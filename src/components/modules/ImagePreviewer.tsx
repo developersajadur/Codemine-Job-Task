@@ -37,8 +37,9 @@ export default function ImagePreviewer({ onUploadSuccess }: ImagePreviewerProps)
 
     try {
       const result = await uploadImages(images);
-      console.log(result);
-     if(result.success){
+      // console.log(result, 'form 40 number line');
+      // console.log(result?.statusCode);
+     if(result.statusCode === 200){
       toast.success('Images uploaded successfully!');
       setImages([]);
       onUploadSuccess?.();

@@ -5,11 +5,11 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async (req: NextRequest) => {
     const imageUploadApiKey = process.env.NEXT_PUBLIC_IMAGEBB_API_KEY;
     const db = await ConnectWithDB();
-    const imagesCollection = db.collection("images");
+    const imagesCollection = await db.collection("images");
 
     try {
         const formData = await req.formData();
-        const files = formData.getAll('images');
+        const files =  formData.getAll('images');
 
         if (!files.length) {
             return NextResponse.json(

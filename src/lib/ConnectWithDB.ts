@@ -21,7 +21,7 @@ export const ConnectWithDB = async () => {
       }
     });
     await client.connect();
-    db = client.db("Images-Gallery");
+    db = await client.db("Images-Gallery");
     console.log("Connected to MongoDB Database");
     return db;
     
